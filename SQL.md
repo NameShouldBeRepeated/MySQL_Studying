@@ -18,7 +18,7 @@
 | DQL  | Data Query Language        | 数据**查询**语言，查找数据库中的表的记录               |
 | DCL  | Data Control Language      | 数据**控制**语言，创建数据库用户，管理数据库的访问权限 |
 
-## DDL
+## DDL Data Definition Language，数据定义语言
 
 ### 数据库操作
 
@@ -147,3 +147,130 @@ CREATE TABLE 表名(
    ```
 
    
+
+## DML Data Manipulation Language，数据操作语言
+
+### 添加
+
+1. 给指定字段添加数据
+
+   ```sql
+   INSERT INTO 表名(字段名1，字段名2，...) VALUES(值1，值2，...);
+   ```
+
+2. 给全部字段添加数据
+
+   ```sql
+   INSERT INTO 表名 VALUES(值1，值2，...);
+   ```
+
+3. 批量添加数据
+
+   ```sql
+   INSERT INTO 表名(字段名1，字段名2) VALUES(值1，值2，...)(值1，值2，...)(值1，值2，...)
+   ```
+	```sql
+   INSERT INTO 表名 VALUES(值1，值2，...)(值1，值2，...)(值1，值2，...)
+   ```
+   
+
+注意：
+
+		* 插入数据，指定字段顺序与值顺序一致，如上面字段名1要对应值1...
+		* 字符串和日期型数据要包含在引号内
+		* 插入数据大小，应该在字段的规定范围内
+
+### 修改
+
+1. 修改数据
+
+   ```sql
+   UPDATE 表名 SET 字段名1=值1，字段名2=值2，...[WHERE 条件];
+   ```
+
+注意：
+
+* 修改语句的条件可以有也可以没有，如果没有条件，会修改整张表的数据
+
+
+
+### 删除
+
+1. 删除数据
+
+   ```sql
+   DELETE FROM 表名 [WHERE 条件];
+   ```
+
+注意：
+
+* DELETE语句的条件可以有也可以没有，如果没有会删除整张表的所有数据
+* DELETE语句不能用于删除某一个字段的值（可以改用UPDATE语句）
+
+## DQL Data Query Language，数据查询语言
+
+### 语法
+
+```sql
+SELECT
+		字段列表
+FROM
+		表名列表
+WHERE
+		条件列表
+GROUP BY
+		分组字段列表
+HAVING
+		分组后条件列表
+ORDER BY
+		排序字段列表
+LIMIT
+		分页列表
+```
+
+* 基本查询
+* 条件查询(WHERE)
+* 聚合函数(count,max,min,avg,sum)
+* 分组查询(GROUP BY)
+* 排序查询(ORDER BY)
+* 分页查询(LIMIT)
+
+### 基本查询
+
+1. 查询多个字段
+
+   ```sql
+   SELECT 字段1，字段2，字段3，......FROM 表名;
+   ```
+
+   ```sql
+   SELECT * FROM 表名;
+   #一般不要写*
+   ```
+
+2. 设置别名
+
+   ```sql
+   SELECT 字段1 [AS 别名1]，字段2 [AS 别名2]，...... FROM 表名;
+   #上面的AS可以省略
+   ```
+
+3. 去除重复记录（如果某值重复了就只显示一次）
+
+   ```sql
+   SELECT DISTINCT 字段列表 FROM 表名;
+   ```
+
+### 条件查询
+
+1. 语法
+
+   ```sql
+   SELECT 字段列表 FROM 表名 WHERE 条件列表;
+   ```
+
+2. 条件
+
+   ![image-20260916202105133](C:\Users\c\AppData\Roaming\Typora\typora-user-images\image-20260916202105133.png)
+
+   ![image-20260916202147264](C:\Users\c\AppData\Roaming\Typora\typora-user-images\image-20260916202147264.png)
