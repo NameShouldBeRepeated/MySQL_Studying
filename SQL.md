@@ -274,3 +274,22 @@ LIMIT
    ![image-20260916202105133](images/image-20260916202105133.png)
 
    ![image-20260916202147264](images/image-20260916202147264.png)
+
+
+
+## 补充核心八股：DDL/DML 与 DQL 执行逻辑
+
+### 一、DELETE / TRUNCATE / DROP 的区别
+| 命令 | 语言分类 | 执行机制 | 能否回滚 | 是否重置自增主键 |
+| :--- | :--- | :--- | :--- | :--- |
+| **DELETE** | DML | 逐行删除，记录事务日志 | 可以回滚 | 不重置 |
+| **TRUNCATE** | DDL | 清空整表，不记录事务日志，速度快 | 不可回滚 | 重置为1 |
+| **DROP** | DDL | 连表带结构彻底删除，连根拔起 | 不可回滚 | 完全销毁 |
+
+### 二、WHERE 与 HAVING 的区别及执行顺序
+**DQL 完整执行顺序：**
+FROM -> WHERE -> GROUP BY -> HAVING -> SELECT -> ORDER BY -> LIMIT
+
+**核心区别：**
+- **WHERE**：在分组（GROUP BY）**之前**过滤原始数据行。因此**不能**使用聚合函数（如 count、sum、max）。
+- **HAVING**：在分组（GROUP BY）**之后**过滤分组结果。因此**可以**使用聚合函数。
