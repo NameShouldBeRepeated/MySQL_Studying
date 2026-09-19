@@ -271,6 +271,6 @@ LIMIT
 
 2. 条件
 
-   ![image-20260916202105133](C:\Users\c\AppData\Roaming\Typora\typora-user-images\image-20260916202105133.png)
+   ![image-20260916202105133](images/image-20260916202105133.png)
 
-   ![image-20260916202147264](C:\Users\c\AppData\Roaming\Typora\typora-user-images\image-20260916202147264.png)
+   ![image-20260916202147264](images/image-20260916202147264.png)
