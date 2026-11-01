@@ -44,7 +44,7 @@ MySQL数据库安装好后，自带了4个数据库
   mysqladmin --help;
   ```
 
-  ![Snipaste_2026-10-19_14-57-26](..\images\Snipaste_2026-10-19_14-57-26.png)
+  ![Snipaste_2026-10-19_14-57-26](../images/Snipaste_2026-10-19_14-57-26.png)
 
   >下面还有很多，截图没截完
   
